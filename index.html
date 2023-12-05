@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <title>Vite + TS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500;1,900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .circle-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-origin: center;
+      animation: rotate 6s linear infinite;
+    }
+
+    .circle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      border-radius: 50%;
+      transform-origin: 50% 100%;
+    }
+
+    .center-div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background-color: #e74c3c;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .circle:nth-child(1) {
+      transform: rotate(45deg) translate(150px) rotate(-45deg);
+    }
+
+    .circle:nth-child(2) {
+      transform: rotate(90deg) translate(150px) rotate(-90deg);
+    }
+
+    .circle:nth-child(3) {
+      transform: rotate(135deg) translate(150px) rotate(-135deg);
+    }
+
+    .circle:nth-child(4) {
+      transform: rotate(180deg) translate(150px) rotate(-180deg);
+    }
+
+    .circle:nth-child(5) {
+      transform: rotate(225deg) translate(150px) rotate(-225deg);
+    }
+
+    .circle:nth-child(6) {
+      transform: rotate(270deg) translate(150px) rotate(-270deg);
+    }
+
+    .circle:nth-child(7) {
+      transform: rotate(315deg) translate(150px) rotate(-315deg);
+    }
+
+    .circle:nth-child(8) {
+      transform: rotate(360deg) translate(150px) rotate(-360deg);
+    }
+  </style>
+  <script type="module" crossorigin src="assets/style-PBnCUApt.js"></script>
+  <script type="module" crossorigin src="assets/main-r27QE2JY.js"></script>
+  <script type="module" crossorigin src="assets/main-OxMJLpOY.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/style-SKe60XKF.css">
+  <link rel="stylesheet" crossorigin href="assets/main-GZGRZiWj.css">
+</head>
+
+<body>
+  <div id="app" class="font-neue">
+
+    <section id="intro" class="bg-gradient-75 from-[#0D1C30_0%] to-[#526968] pb-12">
+
+      <!-- NAVBAR -->
+      <nav class="'w-full flex items-center justify-between py-4 px-16 max-sm:p-4 max-[400px]:p-2">
+        <h2 class="flex justify-start items-center z-20 font-neue">
+          <p class="text-xl font-bold tracking-wide">Business Logo</p>
+        </h2>
+
+        <ul class='flex flex-1 justify-center items-center list-none max-lg:hidden'>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <a href="/exchange.html">Exchange</a>
+          </li>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <a href="#pricing">Pricing</a>
+          </li>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <a href="#features">Features</a>
+          </li>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <a href="#testimonials">Testimonials</a>
+          </li>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+              class="flex items-center justify-between w-full py-2 px-3 rounded md:border-0 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Company
+              <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 4 4 4-4" />
+              </svg></button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar"
+              class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute mt-4">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                <li>
+                  <a href="/about.html"
+                    class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About</a>
+                </li>
+                <li>
+                  <a href="/contact.html"
+                    class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</a>
+                </li>
+                <!-- <li>
+                  <a href="#"
+                    class="block px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Associations</a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
+          <li
+            class='my-0 mx-4 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            <a href="/faqs.html">FAQs</a>
+          </li>
+        </ul>
+
+        <div class="flex gap-4 items-center max-lg:hidden">
+          <a href="/login.html" id="login"
+            class='my-0 cursor-pointer text-center leading-6 tracking-wide text-base not-italic font-neue font-semibold text-white'>
+            Login
+          </a>
+          <a href="/register.html"
+            class="flex text-white text-base leading-6 items-center max-lg:hidden px-6 py-3 focus:outline-none border-solid bg-[#00AF7E] rounded-md outline-none capitalize md:max-[1060px]:px-2">
+            create <span class="max-xl:hidden">&nbsp;free&nbsp;</span> acount
+          </a>
+        </div>
+
+
+        <div class="flex lg:hidden">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="text-white text-xl cursor-pointer h-8 z-20" id="hamburgerIcon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+
+          <div id="mobileMenu"
+            class="hidden top-16 max-[403px]:top-12 fixed inset-0 w-full h-[100svh] bg-gradient-75 from-[#0D1C30_0%] to-[#083F3B_100%] transition duration-500 ease-in-out flex-col z-10 items-center slide-bottom font-rubik">
+            <ul class='list-none grid divide-y divide-neutral-200 px-16 max-[642px]:px-0 mt-3 w-full'>
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-3'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4 class="text-sm leading-[23px] tracking-wider font-rubik text-lef text-white font-normal px-4">
+                        Exchange
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    USD to Crypto
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    PHP to USD
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Crypto to PHP
+                  </p>
+                </details>
+              </li>
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-2'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4
+                        class="text-sm leading-[23px] tracking-wider font-rubik text-left text-white font-normal px-4">
+                        Pricing
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Standard Plan
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Premium Plan
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Enterprise Solutions
+                  </p>
+                </details>
+              </li>
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-2'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4
+                        class="text-sm leading-[23px] tracking-wider font-rubik text-left text-white font-normal px-4">
+                        Features
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p
+                    class="text-white/80 px-4 mt-3 text-xs opacity-25 group-open:opacity-100 group-open:animate-fadeIn group-open:transition-opacity group-open:duration-300 group-open:ease-in-out">
+                    Instant Transfers
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Multi-currency support
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Transaction History
+                  </p>
+
+                </details>
+              </li>
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-2'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4
+                        class="text-sm leading-[23px] -tracking-[4%] font-rubik text-left text-white font-normal px-4">
+                        Company
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    About Us
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Our Team
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Mission & Values
+                  </p>
+                </details>
+              </li>
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-2'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4
+                        class="text-sm leading-[23px] tracking-wider font-rubik text-left text-white font-normal px-4">
+                        Testimonials
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Customer Reviews
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Success Stories
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Happy Customers
+                  </p>
+
+                </details>
+              </li>
+
+              <li
+                class='text-2xl cursor-pointer leading-7 font-cormorant hover:text-white/90 font-normal text-white capitalize py-2'>
+                <details class="group">
+                  <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <div class="flex flex-col justify-start items-start gap-2">
+                      <h4
+                        class="text-sm leading-[23px] tracking-wider font-rubik text-left text-white font-normal px-4">
+                        FAQs
+                      </h4>
+                    </div>
+                    <span class="transition group-open:rotate-180 min-[642px]:mr-[unset] px-2">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    How to transfer money?
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Supported currencies
+                  </p>
+                  <p class="text-white/80 px-4 mt-3 text-xs group-open:animate-fadeIn">
+                    Security measures
+                  </p>
+
+                </details>
+              </li>
+            </ul>
+
+            <a href="/register.html"
+              class="my-4 absolute bottom-16 border border-[#FEFEFE] border-solid text-[#FEFEFE] py-4 px-32 max-[398px]:px-16 max-[278px]:px-1 rounded-2xl flex text-base leading-5 items-center focus:outline-none outline-none capitalize font-medium font-rubik -tracking-wide bg-[#00AF7E]">
+              create free account
+
+            </a>
+          </div>
+        </div>
+
+      </nav>
+      <div class="container mx-auto space-y-8 h-[unset] pt-28 max-lg:pt-20 max-md:pt-14 relative">
+        <h1 class="text-[5.6rem] max-lg:relative max-lg:z-50 max-md:z-[9] max-lg:text-7xl max-md:text-5xl max-sm:text-4xl max-[550px]:text-3xl max-lg:leading-[5.3rem] max-md:leading-[3.8rem] font-black uppercase leading-[6.25rem] text-white max-w-5xl text-center mx-auto">
+          Go Global with <br><span
+            class="bg-gradient-180 no-italic bg-clip-text from-white/40 to-[#00AF7E]/100 text-transparent">Easy
+            Cross-Border</span> <br> Transfers
+        </h1>
+
+        <div class="text-[1.375rem] max-md:text-base max-md:leading-6 leading-8 tracking-wide max-w-5xl text-center mx-auto text-white mt-2">
+          <p>Say goodbye to payment hassles! Our user-friendly platform streamlines transactions, making payments a
+            breeze. Experience simplicity and convenience like never before.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl text-center mx-auto flex p-8 max-md:flex-col gap-4 max-md:mx-2">
+          <div
+            class="flex-[3] rounded-lg border border-solid border-[#D9DDE8] bg-white flex divide-x divide-neutral-300">
+            <div class="relative w-4/5 group z-0">
+              <input type="number" id="pay"
+                class="block p-2.5 flex-[3] z-20 text-sm text-gray-900 bg-white rounded-e-lg rounded-s-gray-100 rounded-s-2 border-none focus:outline-none peer w-full appearance-none placeholder:text-transparent font-medium"
+                placeholder="You Send" required>
+              <!-- <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required /> -->
+              <label for="pay"
+                class="peer-focus:font-bold font-semibold bottom-12 left-0 peer-focus:bottom-14 absolute text-sm text-[#262B40] duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-[#262B40] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">You
+                Pay</label>
+            </div>
+
+            <label for="currency-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Amount
+              you send</label>
+            <select
+              class="py-2 text-sm text-gray-700 dark:text-gray-200 flex-1 flex justify-center items-center px-2 cursor-pointer bg-transparent font-medium"
+              aria-labelledby="currency-button">
+              <option selected>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">USD</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">EUR</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PHP</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">CAD</a>
+              </option>
+            </select>
+
+          </div>
+          <div
+            class="flex-[3] rounded-lg border border-solid border-[#D9DDE8] bg-white flex divide-x divide-neutral-300">
+            <div class="relative w-4/5 group z-0">
+              <input type="number" id="recipient"
+                class="block p-2.5 flex-[3] z-20 text-sm text-gray-900 bg-white rounded-e-lg rounded-s-gray-100 rounded-s-2 border-none focus:outline-none peer w-full appearance-none placeholder:text-transparent font-medium"
+                placeholder="Recipient Gets" required>
+              <!-- <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required /> -->
+              <label for="recipient"
+                class="peer-focus:font-bold font-semibold bottom-12 left-0 peer-focus:bottom-14 absolute text-sm text-[#262B40] duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-[#262B40] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Recipient
+                Gets</label>
+            </div>
+
+            <!-- <label for="currency-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Amount
+              recipient gets</label> -->
+            <select
+              class="py-2 text-sm text-gray-700 dark:text-gray-200 flex-1 flex justify-center items-center px-2 cursor-pointer bg-transparent font-medium"
+              aria-labelledby="currency-button">
+              <option selected>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PHP</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">EUR</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">USD</a>
+              </option>
+              <option>
+                <a href="#"
+                  class="block font-semibold px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">CAD</a>
+              </option>
+            </select>
+
+          </div>
+          <div class="flex-[2]">
+            <button class="uppercase bg-[#00AF7E] rounded-lg py-3 px-16">
+              <span class="text-white font-neue text-lg font-semibold leading-6 tracking-wide uppercase">Exchange</span>
+            </button>
+
+          </div>
+        </div>
+
+        <div class="text-base leading-8 tracking-wide text-center mx-auto text-white mt-8">
+          <p>Scroll to view features</p>
+        </div>
+
+        <div class="absolute top-1/4 left-0 pt-1 pr-5 px-1 pb-0 w-11/12 max-md:hidden">
+          <img src="/arrow-smn.png" />
+        </div>
+
+        <div class="absolute top-[37%] -left-24 max-md:hidden max-lg:top-1/4  lg:max-xl:top-[30%]">
+          <!-- <div class="bg-transparent w-48 rounded-full p-2 border border-solid border-white/20">
+            <div class="bg-transparent rounded-full p-7 border border-solid border-b-0 border-white/20">
+              <div class="bg-transparent rounded-full p-2 border border-solid border-white/30"> -->
+          <img src="/PHP.png" />
+          <!-- </div>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="absolute top-4 right-0 max-lg:-right-[10%] max-md:hidden lg:max-xl:-right-[5%]">
+          <img src="/JPY.png" />
+        </div>
+
+        <div class="absolute top-1/2 -right-0 max-md:hidden max-lg:-right-[10%]">
+          <svg width="150" height="147" viewBox="0 0 150 147" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="57" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 57 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 129 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 93 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 75 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 147 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="126.32" rx="2.92335" ry="3" transform="rotate(90 111 126.32)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 57 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 129 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 93 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 75 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 147 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="108.78" rx="2.92335" ry="3" transform="rotate(90 111 108.78)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 57 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 129 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 93 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 75 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 147 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 111 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 57 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 129 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 93 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 75 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 147 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="143.86" rx="2.92335" ry="3" transform="rotate(90 111 143.86)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 57 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 129 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 93 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 75 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 147 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 111 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 57 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="129" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 129 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 93 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 75 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="147" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 147 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="111" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 111 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 39 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 3 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 75 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 57 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 21 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="91.2399" rx="2.92335" ry="3" transform="rotate(90 93 91.2399)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 39 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 3 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 75 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 57 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 21 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="38.6196" rx="2.92335" ry="3" transform="rotate(90 93 38.6196)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 39 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 3 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 75 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 57 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 21 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="73.6998" rx="2.92335" ry="3" transform="rotate(90 93 73.6998)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 39 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 3 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 75 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 57 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 21 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="21.0794" rx="2.92335" ry="3" transform="rotate(90 93 21.0794)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 39 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 3 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 75 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 57 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 21 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="56.1597" rx="2.92335" ry="3" transform="rotate(90 93 56.1597)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="39" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 39 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="3" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 3 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="75" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 75 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="57" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 57 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="21" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 21 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+            <ellipse cx="93" cy="3.53932" rx="2.92335" ry="3" transform="rotate(90 93 3.53932)" fill="#00AF7E"
+              fill-opacity="0.28" />
+          </svg>
+        </div>
+
+        <div class="absolute -bottom-8 left-[57%] max-md:left-[65%] max-[347px]:hidden">
+          <svg width="122" height="66" viewBox="0 0 122 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="path-1-outside-1_22_940" maskUnits="userSpaceOnUse" x="-8.23459" y="-19.2511" width="146.685"
+              height="86.0051" fill="black">
+              <rect fill="white" x="-8.23459" y="-19.2511" width="146.685" height="86.0051" />
+              <path
+                d="M0.658124 2.98258C0.484701 3.10785 0.471635 3.33363 0.628998 3.48675C0.786325 3.63995 1.05447 3.66255 1.2279 3.53729L0.658124 2.98258ZM117.907 64.4259C118.079 64.5675 118.347 64.5699 118.506 64.4316L121.094 62.1762C121.253 62.0379 121.242 61.811 121.07 61.6695C120.897 61.528 120.629 61.5256 120.47 61.6639L118.17 63.6685L115.677 61.6195C115.505 61.478 115.237 61.4755 115.078 61.6139C114.919 61.7522 114.93 61.9791 115.102 62.1207L117.907 64.4259ZM67.2771 3.65075L67.1697 3.99233L67.1807 3.99527L67.1918 3.99767L67.2771 3.65075ZM1.2279 3.53729C3.07672 2.20169 5.82085 1.63147 9.00035 1.73979C12.1745 1.8479 15.7379 2.63195 19.1664 3.95835C26.0432 6.61874 32.2467 11.4048 33.7367 17.1269L34.5645 17.0075C32.9895 10.9592 26.4944 6.02056 19.4862 3.30932C15.9723 1.94983 12.2968 1.13637 8.99114 1.02368C5.69087 0.911292 2.71455 1.49703 0.658124 2.98258L1.2279 3.53729ZM33.7367 17.1269C35.6234 24.3719 32.6951 28.2449 29.0275 29.5713C25.2978 30.9201 20.7387 29.7043 19.0226 26.6393L18.2593 26.9182C20.2186 30.4174 25.33 31.7023 29.3942 30.2325C33.5203 28.7403 36.5091 24.4753 34.5645 17.0075L33.7367 17.1269ZM19.0226 26.6393C17.5739 24.0519 18.1687 20.9395 20.392 17.7742C22.6109 14.6152 26.416 11.4629 31.2311 8.85191C40.8664 3.62724 54.4344 0.627321 67.1697 3.99233L67.3844 3.30926C54.3423 -0.1368 40.5215 2.94315 30.7477 8.24302C25.8583 10.8943 21.9539 14.1156 19.657 17.3855C17.3644 20.6493 16.6373 24.0213 18.2593 26.9182L19.0226 26.6393ZM67.1918 3.99767C79.0027 6.55479 91.2999 14.2503 100.826 25.0013C110.348 35.7471 117.072 49.5141 117.77 64.1712L118.618 64.1791C117.911 49.3561 111.113 35.4452 101.496 24.5909C91.8825 13.7419 79.4233 5.91518 67.3623 3.30392L67.1918 3.99767Z" />
+            </mask>
+            <path
+              d="M0.658124 2.98258C0.484701 3.10785 0.471635 3.33363 0.628998 3.48675C0.786325 3.63995 1.05447 3.66255 1.2279 3.53729L0.658124 2.98258ZM117.907 64.4259C118.079 64.5675 118.347 64.5699 118.506 64.4316L121.094 62.1762C121.253 62.0379 121.242 61.811 121.07 61.6695C120.897 61.528 120.629 61.5256 120.47 61.6639L118.17 63.6685L115.677 61.6195C115.505 61.478 115.237 61.4755 115.078 61.6139C114.919 61.7522 114.93 61.9791 115.102 62.1207L117.907 64.4259ZM67.2771 3.65075L67.1697 3.99233L67.1807 3.99527L67.1918 3.99767L67.2771 3.65075ZM1.2279 3.53729C3.07672 2.20169 5.82085 1.63147 9.00035 1.73979C12.1745 1.8479 15.7379 2.63195 19.1664 3.95835C26.0432 6.61874 32.2467 11.4048 33.7367 17.1269L34.5645 17.0075C32.9895 10.9592 26.4944 6.02056 19.4862 3.30932C15.9723 1.94983 12.2968 1.13637 8.99114 1.02368C5.69087 0.911292 2.71455 1.49703 0.658124 2.98258L1.2279 3.53729ZM33.7367 17.1269C35.6234 24.3719 32.6951 28.2449 29.0275 29.5713C25.2978 30.9201 20.7387 29.7043 19.0226 26.6393L18.2593 26.9182C20.2186 30.4174 25.33 31.7023 29.3942 30.2325C33.5203 28.7403 36.5091 24.4753 34.5645 17.0075L33.7367 17.1269ZM19.0226 26.6393C17.5739 24.0519 18.1687 20.9395 20.392 17.7742C22.6109 14.6152 26.416 11.4629 31.2311 8.85191C40.8664 3.62724 54.4344 0.627321 67.1697 3.99233L67.3844 3.30926C54.3423 -0.1368 40.5215 2.94315 30.7477 8.24302C25.8583 10.8943 21.9539 14.1156 19.657 17.3855C17.3644 20.6493 16.6373 24.0213 18.2593 26.9182L19.0226 26.6393ZM67.1918 3.99767C79.0027 6.55479 91.2999 14.2503 100.826 25.0013C110.348 35.7471 117.072 49.5141 117.77 64.1712L118.618 64.1791C117.911 49.3561 111.113 35.4452 101.496 24.5909C91.8825 13.7419 79.4233 5.91518 67.3623 3.30392L67.1918 3.99767Z"
+              fill="#00AF7E" />
+            <path
+              d="M1.41741 3.36318L0.847633 2.80848L0.468614 3.15669L1.03839 3.71139L1.41741 3.36318ZM34.1749 17.3071L34.5888 17.2474L34.5402 16.7676L34.1263 16.8273L34.1749 17.3071ZM18.7215 27.0044L19.103 26.865L18.9421 26.4135L18.5605 26.553L18.7215 27.0044ZM33.7611 17.3668L34.5888 17.2474L34.5402 16.7676L33.7124 16.8871L33.7611 17.3668ZM18.9421 26.4135L18.1788 26.6925L18.3398 27.1439L19.103 26.865L18.9421 26.4135ZM0.658124 2.98258L0.955289 3.36179L0.955309 3.36177L0.658124 2.98258ZM0.628998 3.48675L1.00805 3.13857L1.00793 3.13844L0.628998 3.48675ZM1.2279 3.53729L1.52505 3.9165L1.52508 3.91648L1.2279 3.53729ZM34.5645 17.0075L35.0642 16.8661L35.0642 16.8661L34.5645 17.0075ZM19.0226 26.6393L18.5649 26.8852L19.0226 26.6393ZM117.907 64.4259L117.557 64.8L117.557 64.8L117.907 64.4259ZM118.506 64.4316L118.843 64.7795L118.843 64.7793L118.506 64.4316ZM121.094 62.1762L120.757 61.8283L120.757 61.8285L121.094 62.1762ZM121.07 61.6695L120.719 62.0436L120.72 62.0438L121.07 61.6695ZM120.47 61.6639L120.134 61.3159L120.134 61.3161L120.47 61.6639ZM118.17 63.6685L117.82 64.0425L118.158 64.3203L118.507 64.0163L118.17 63.6685ZM115.677 61.6195L116.027 61.2455L116.027 61.2454L115.677 61.6195ZM115.102 62.1207L115.452 61.7466L115.452 61.7465L115.102 62.1207ZM67.2771 3.65075L67.7776 3.73413L66.7848 3.53781L67.2771 3.65075ZM67.1807 3.99527L67.0144 4.46295L67.0265 4.46617L67.0387 4.46881L67.1807 3.99527ZM9.00035 1.73979L8.95211 2.22491L8.95212 2.22491L9.00035 1.73979ZM19.1664 3.95835L18.9483 4.40913L18.9483 4.40913L19.1664 3.95835ZM33.7367 17.1269L33.237 17.2683L33.237 17.2683L33.7367 17.1269ZM19.4862 3.30932L19.268 3.7601L19.2681 3.7601L19.4862 3.30932ZM8.99114 1.02368L9.03939 0.538559L9.03937 0.538558L8.99114 1.02368ZM29.0275 29.5713L29.1866 30.0234L29.0275 29.5713ZM18.2593 26.9182L17.8017 27.1641L17.8017 27.1641L18.2593 26.9182ZM29.3942 30.2325L29.5534 30.6846L29.5534 30.6846L29.3942 30.2325ZM20.392 17.7742L20.8155 18.0259L20.392 17.7742ZM31.2311 8.85191L30.9949 8.43438L30.9949 8.43439L31.2311 8.85191ZM67.3844 3.30926L67.8767 3.42219L68.0202 2.96563L67.5492 2.84119L67.3844 3.30926ZM30.7477 8.24302L30.9839 8.66054L30.9839 8.66054L30.7477 8.24302ZM19.657 17.3855L19.2335 17.1338L19.2335 17.1338L19.657 17.3855ZM100.826 25.0013L101.228 24.6774L101.228 24.6774L100.826 25.0013ZM117.77 64.1712L117.257 64.221L117.277 64.6523L117.736 64.6566L117.77 64.1712ZM118.618 64.1791L118.583 64.6645L119.157 64.6699L119.131 64.1293L118.618 64.1791ZM101.496 24.5909L101.898 24.2669L101.898 24.2669L101.496 24.5909ZM67.3623 3.30392L67.5045 2.83041L66.9853 2.718L66.8618 3.22055L67.3623 3.30392ZM0.360959 2.60338C-0.10774 2.94193 -0.0795852 3.51429 0.250071 3.83505L1.00793 3.13844C1.01482 3.14515 1.0358 3.17242 1.0329 3.22256C1.02979 3.27645 0.999175 3.33009 0.955289 3.36179L0.360959 2.60338ZM0.249943 3.83492C0.556941 4.13387 1.11095 4.2156 1.52505 3.9165L0.930744 3.15807C0.96859 3.13074 0.996517 3.13282 0.997483 3.1329C0.999318 3.13306 1.00251 3.13317 1.00805 3.13857L0.249943 3.83492ZM117.557 64.8C117.887 65.0709 118.452 65.1202 118.843 64.7795L118.17 64.0836C118.209 64.0495 118.243 64.0483 118.247 64.0483C118.252 64.0483 118.254 64.0492 118.257 64.0518L117.557 64.8ZM118.843 64.7793L121.431 62.524L120.757 61.8285L118.17 64.0838L118.843 64.7793ZM121.43 62.5242C121.868 62.1435 121.768 61.5813 121.419 61.2953L120.72 62.0438C120.715 62.0402 120.694 62.0192 120.692 61.9739C120.69 61.9246 120.712 61.8672 120.757 61.8283L121.43 62.5242ZM121.42 61.2954C121.09 61.0246 120.525 60.9753 120.134 61.3159L120.807 62.0119C120.768 62.046 120.734 62.0472 120.73 62.0472C120.725 62.0471 120.723 62.0463 120.719 62.0436L121.42 61.2954ZM120.134 61.3161L117.833 63.3206L118.507 64.0163L120.807 62.0117L120.134 61.3161ZM118.52 63.2944L116.027 61.2455L115.327 61.9936L117.82 64.0425L118.52 63.2944ZM116.027 61.2454C115.697 60.9745 115.132 60.9252 114.741 61.2659L115.414 61.9619C115.375 61.996 115.342 61.9972 115.337 61.9972C115.333 61.9971 115.33 61.9963 115.327 61.9936L116.027 61.2454ZM114.741 61.2659C114.304 61.6467 114.404 62.2088 114.752 62.4948L115.452 61.7465C115.456 61.7501 115.477 61.771 115.479 61.8163C115.482 61.8656 115.459 61.9229 115.414 61.9619L114.741 61.2659ZM114.752 62.4947L117.557 64.8L118.257 64.0519L115.452 61.7466L114.752 62.4947ZM66.7848 3.53781L66.6774 3.87939L67.662 4.10526L67.7693 3.76369L66.7848 3.53781ZM67.0034 4.46002L67.0144 4.46295L67.3469 3.52758L67.3359 3.52464L67.0034 4.46002ZM67.0387 4.46881L67.0498 4.47121L67.3338 3.52412L67.3227 3.52172L67.0387 4.46881ZM67.6923 4.08105L67.7776 3.73413L66.7765 3.56737L66.6913 3.91429L67.6923 4.08105ZM1.52508 3.91648C3.2299 2.68491 5.82858 2.1185 8.95211 2.22491L9.04859 1.25467C5.81312 1.14444 2.92354 1.71847 0.930708 3.1581L1.52508 3.91648ZM8.95212 2.22491C12.0566 2.33065 15.5625 3.09929 18.9483 4.40913L19.3846 3.50757C15.9132 2.16462 12.2923 1.36514 9.04858 1.25467L8.95212 2.22491ZM18.9483 4.40913C25.7706 7.04844 31.8015 11.7555 33.237 17.2683L34.2365 16.9856C32.6919 11.0542 26.3159 6.18904 19.3845 3.50756L18.9483 4.40913ZM35.0642 16.8661C33.4347 10.6085 26.7669 5.59079 19.7043 2.85853L19.2681 3.7601C26.222 6.45033 32.5443 11.31 34.0648 17.1488L35.0642 16.8661ZM19.7043 2.85854C16.1476 1.48249 12.4147 0.653624 9.03939 0.538559L8.94289 1.50881C12.1789 1.61912 15.7969 2.41717 19.268 3.7601L19.7043 2.85854ZM9.03937 0.538558C5.68327 0.424267 2.56144 1.01376 0.360939 2.60339L0.955309 3.36177C2.86767 1.98029 5.69848 1.39832 8.94291 1.50881L9.03937 0.538558ZM33.237 17.2683C34.1623 20.8217 33.8904 23.4848 32.9966 25.3944C32.1064 27.2961 30.5766 28.5014 28.8683 29.1192L29.1866 30.0234C31.1459 29.3148 32.9141 27.9205 33.9333 25.7429C34.9489 23.5731 35.1978 20.6772 34.2365 16.9856L33.237 17.2683ZM28.8683 29.1192C25.3387 30.3957 21.063 29.2202 19.4802 26.3933L18.5649 26.8852C20.4145 30.1885 25.2568 31.4446 29.1866 30.0234L28.8683 29.1192ZM17.8017 27.1641C19.895 30.9026 25.2905 32.2263 29.5534 30.6846L29.235 29.7804C25.3695 31.1784 20.5423 29.9321 18.7169 26.6722L17.8017 27.1641ZM29.5534 30.6846C31.7434 29.8926 33.6407 28.3579 34.7245 26.0345C35.8047 23.7191 36.0548 20.6701 35.0642 16.8661L34.0648 17.1488C35.0189 20.8127 34.7469 23.6301 33.7873 25.6872C32.8313 27.7363 31.1711 29.0802 29.235 29.7804L29.5534 30.6846ZM19.4802 26.3933C18.1479 24.0138 18.6557 21.1007 20.8155 18.0259L19.9685 17.5226C17.6817 20.7783 16.9999 24.0901 18.5649 26.8852L19.4802 26.3933ZM20.8155 18.0259C22.9725 14.955 26.7018 11.8535 31.4673 9.26943L30.9949 8.43439C26.1303 11.0723 22.2493 14.2755 19.9685 17.5226L20.8155 18.0259ZM31.4673 9.26943C41.0023 4.09916 54.4251 1.13649 67.0049 4.4604L67.3345 3.52426C54.4437 0.118156 40.7306 3.15531 30.9949 8.43438L31.4673 9.26943ZM67.662 4.10526L67.8767 3.42219L66.8921 3.19633L66.6774 3.8794L67.662 4.10526ZM67.5492 2.84119C54.3516 -0.645976 40.3856 2.47125 30.5115 7.8255L30.9839 8.66054C40.6574 3.41505 54.3331 0.372376 67.2196 3.77733L67.5492 2.84119ZM30.5115 7.8255C25.5725 10.5037 21.5923 13.7758 19.2335 17.1338L20.0804 17.6371C22.3154 14.4553 26.1441 11.2849 30.9839 8.66054L30.5115 7.8255ZM19.2335 17.1338C16.8777 20.4877 16.0631 24.0591 17.8017 27.1641L18.7169 26.6722C17.2115 23.9835 17.8511 20.811 20.0804 17.6371L19.2335 17.1338ZM67.0496 4.47117C78.7348 7.00107 90.9475 14.6304 100.424 25.3253L101.228 24.6774C91.6523 13.8702 79.2707 6.10852 67.334 3.52417L67.0496 4.47117ZM100.424 25.3253C109.893 36.0116 116.564 49.6862 117.257 64.221L118.284 64.1214C117.58 49.3421 110.803 35.4827 101.228 24.6774L100.424 25.3253ZM117.736 64.6566L118.583 64.6645L118.653 63.6937L117.805 63.6858L117.736 64.6566ZM119.131 64.1293C118.419 49.1841 111.568 35.1808 101.898 24.2669L101.093 24.9148C110.658 35.7097 117.404 49.5282 118.104 64.2289L119.131 64.1293ZM101.898 24.2669C92.2349 13.3618 79.6912 5.46891 67.5045 2.83041L67.2201 3.77742C79.1553 6.36145 91.53 14.1219 101.093 24.9148L101.898 24.2669ZM66.8618 3.22055L66.6913 3.9143L67.6923 4.08104L67.8628 3.38729L66.8618 3.22055Z"
+              fill="#00AF7E" mask="url(#path-1-outside-1_22_940)" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-20 max-sm:px-4 max-md:px-8 max-lg:px-16 py-16 max-md:pb-8">
+      <div class="container h-[unset]">
+
+        <h1 class="text-center mx-auto font-bold max-md:text-5xl max-sm:leading-10 max-md:leading-[3.77rem] max-lg:text-[3.5rem] leading-[4.5rem] text-[4rem] font-neue text-[#13171d]">
+          Diverse payment solutions for local and global transactions
+        </h1>
+
+        <div class="grid grid-rows-2 grid-cols-4 gap-4 mt-8 max-md:grid-rows-8 max-md:grid-cols-1 max-lg:grid-rows-4 max-lg:grid-cols-2">
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/free-transfers.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">Free Transfers</div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Effortlessly move your money without any extra charges. Your savings, your way.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/transparent-process.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">Transparent Process
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Know where your money is at all times with a clear and transparent tracking system.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/secure-transactions.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">Secure Transactions
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Trust in our robust security measures to safeguard your transfers and information.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/user-friendly-i.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">User-friendly interface
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Enjoy a hassle-free experience with an intuitive platform for easy navigation.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/accessibility.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">24/7 Accessibility
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Take control of your transfers anytime, anywhere, with 24/7 accessibility.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/instant-transactions.svg" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">Instant Transactions
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Experience swift and efficient transfers for your urgent financial needs.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/no-minimums.png" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">No minimums</div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">Enjoy the flexibility of
+              transferring any amount without being tied down.
+            </div>
+          </div>
+          <div
+            class="rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)] flex p-6 flex-col items-start justify-center gap-2">
+            <div class="">
+              <img src="/global-accessibility.png" alt="">
+            </div>
+            <div class="2xl:text-4xl xl:text-2xl text-xl max-md:text-lg max-md:leading-6 leading-8 font-semibold text-[#13171D]">Global Accessibility
+            </div>
+            <div class="text-sm font-medium leading-6 text-[#262B40] tracking-wide max-sm:text-xs max-md:leading-4">
+              Seamlessly send and receive funds globally, expanding your financial reach.
+            </div>
+          </div>
+        </div>
+        <a href="#features" class="mx-auto text-center my-6 flex justify-center items-center gap-2 max-md:w-fit">
+          <span>
+            <p class="text-[#00AF7E] text-center text-lg max-md:text-base max-md:leading-4 font-semibold leading-6 tracking-wide">View
+              all features</p>
+          </span>
+          <span>
+            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 8.5L4.5 5L1 1.5" stroke="#00AF7E" stroke-width="1.5" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- <section class="bg-white py-8 pt-2">
+      <div class="ml-16 rounded-l-3xl bg-[#00AF7E] w-full p-8">
+
+      </div>
+    </section> -->
+
+    <section id="testimonials" class="bg-white py-8 pt-2 pb-12">
+      <div
+        class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24 rounded-l-3xl bg-[#00AF7E]">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16 max-md:overflow-hidden">
+          <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-left text-white">
+              Don't just take our word for it...
+            </h2>
+
+            <p class="mt-4 text-left text-white">
+              Happy customers that trusted us &amp; our services.
+            </p>
+
+            <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+              <button aria-label="Previous slide" id="keen-slider-previous-desktop"
+                class="rounded-full border border-white p-3 text-white transition bg-[#00AF7E] hover:bg-white hover:text-[#00AF7E]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="h-5 w-5 rtl:rotate-180">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+
+              <button aria-label="Next slide" id="keen-slider-next-desktop"
+                class="rounded-full border border-white p-3 text-white transition bg-transparent hover:bg-white hover:text-[#00AF7E]">
+                <svg class="h-5 w-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+              </button>
+            </div>
+
+            <a href="#testimonials" class="text-left my-6 flex justify-start items-center gap-2 text-white w-fit">
+              <span>
+                <p class="text-left text-lg max-md:text-base font-semibold leading-6 tracking-wide">View
+                  all testimonials</p>
+              </span>
+              <span>
+                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 8.5L4.5 5L1 1.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="-mx-6 lg:col-span-2 lg:mx-0">
+            <div id="keen-slider" class="keen-slider">
+              <div
+                class="keen-slider__slide rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)]">
+                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                  <div>
+                    <div class="flex gap-0.5 text-green-500">
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+
+                    <div class="mt-4">
+                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                        Simplified Currency Exchange with Transparency
+                      </p>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        I recently started using this service, and I'm genuinely impressed with the level of service it
+                        offers. The platform's educational resources have been invaluable in helping me make informed
+                        decisions about currency exchanges. The user interface is not only visually appealing but also
+                        intuitive, making it easy for someone like me, who isn't particularly tech-savvy. I also
+                        appreciate the transparency in fees and the absence of hidden charges. Overall, this platform
+                        has simplified my currency exchange needs, and I would recommend it to anyone seeking a reliable
+                        and transparent service.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                    &mdash; Isabella Reyes
+                  </footer>
+                </blockquote>
+              </div>
+
+              <div
+                class="keen-slider__slide rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)]">
+                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                  <div>
+                    <div class="flex gap-0.5 text-green-500">
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+
+                    <div class="mt-4">
+                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                        A Trustworthy Companion for International Business
+                      </p>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        As someone who frequently engages in international business, finding a trustworthy and efficient
+                        currency exchange platform is crucial. I've been using this exchange service for several months
+                        now, and it has exceeded my expectations. The variety of supported currencies is extensive, and
+                        the rates are consistently favorable. The platform's security measures also provide peace of
+                        mind, ensuring that my transactions are safe and secure. The customer support team is responsive
+                        and knowledgeable, making the overall experience top-notch. This platform has become an
+                        indispensable tool for my financial endeavors
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                    &mdash; Juan dela Cruz
+                  </footer>
+                </blockquote>
+              </div>
+
+              <div
+                class="keen-slider__slide rounded-2xl border-solid border border-[#d9dde8] bg-white shadow-[0px_60px_60px_-50px] shadow-[rgba(61,80,137,.1)]">
+                <blockquote class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                  <div>
+                    <div class="flex gap-0.5 text-green-500">
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+
+                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+
+                    <div class="mt-4">
+                      <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                        Seamless Currency Exchanges
+                      </p>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        I stumbled upon this currency exchange platform, and I must say it has been a game-changer for
+                        my financial transactions. The user-friendly interface made it incredibly easy for me to
+                        navigate and execute currency exchanges without any hassle. What I appreciate the most is the
+                        real-time exchange rates, which have always been competitive. The platform's reliability and
+                        speed in processing transactions have earned my trust. I highly recommend this service to anyone
+                        looking for a seamless and efficient way to handle currency exchanges.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                    &mdash; Maria Santos
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-center gap-4 lg:hidden">
+          <button aria-label="Previous slide" id="keen-slider-previous"
+            class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white">
+            <svg class="h-5 w-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </button>
+
+          <button aria-label="Next slide" id="keen-slider-next"
+            class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-8 pb-12 max-md:pb-6">
+      <div class="container px-20 max-sm:px-4 max-md:px-8 max-lg:px-16 mx-auto text-left flex max-md:flex-col gap-8">
+        <div class="flex-1 space-y-4">
+          <h4 class="font-semibold leading-5 tracking-wide uppercase text-sm text-[#00AF7E] max-md:text-left max-md:leading-4 max-sm:text-xs">&mdash; Advanced Protection
+          </h4>
+          <h2 class="font-bold leading-[4.5rem] text-[4rem] text-[#13171D] max-md:leading-[3.7rem] max-md:text-[3.3rem] max-md:font-semibold">
+            Your safety as our first priority
+          </h2>
+          <p class="font-medium leading-8 text-xl tracking-wide text-[#13171D] max-md:leading-6 max-lg:text-lg max-md:text-base max-lg:leading-7">
+            We prioritize data security with a commitment beyond the norm, offering advanced account protection tools
+            surpassing industry standards.
+          </p>
+          <ul class="list-none space-y-2">
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>
+                Dedicated teams ensure your money's safety.</span>
+            </li>
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>Account protection with two-factor Authentication.</span>
+            </li>
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>Funds secured with reputable financial institution.</span>
+            </li>
+          </ul>
+          <button class="rounded-lg bg-[#00AF7E] py-3 px-12 text-white text-center font-semibold text-base leading-6 tracking-wide !mt-12 max-md:!mt-6">Get Started</button>
+
+        </div>
+        <div class="flex-1 max-md:order-first max-md:h-auto">
+          <div class="w-full bg-[url(/3d-hand-using-online-banking-app-smartphone.png)] h-full bg-contain bg-no-repeat bg-center max-md:min-h-[200px]">
+
+          </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 pb-12 max-md:py-6">
+      <div class="container px-20 max-sm:px-4 max-md:px-8 max-lg:px-16 mx-auto text-left flex max-md:flex-col gap-8">
+        <div class="flex-1 space-y-4">
+          <h4 class="font-semibold leading-5 tracking-wide uppercase text-sm text-[#00AF7E] max-md:text-left max-md:leading-4 max-sm:text-xs">&mdash; Get paid
+          </h4>
+          <h2 class="font-bold leading-[4.5rem] text-[4rem] text-[#13171D] max-md:leading-[3.7rem] max-md:text-[3.3rem] max-md:font-semibold">
+            Offer all major payment options
+          </h2>
+          <p class="font-medium leading-8 text-xl tracking-wide text-[#13171D] max-md:leading-6 max-lg:text-lg max-md:text-base max-lg:leading-7">
+            Enjoy seamless transactions with our platform, offering a comprehensive array of major payment options tailored to your financial needs.
+          </p>
+          <ul class="list-none space-y-2">
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>Easily navigate through a platform designed for simplicity and efficiency.</span>
+            </li>
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>Account protection with two-factor Authentication.</span>
+            </li>
+            <li class="text-[#13171D] text-lg font-semibold leading-6 tracking-wide space-x-2 max-md:font-medium max-md:leading-4 max-md:text-base max-md:space-x-1">
+              <img src="/check.svg" alt="" class="inline">
+              <span>Trust in our robust security measures for safe and worry-free payment processing.</span>
+            </li>
+          </ul>
+          <button class="rounded-lg bg-[#00AF7E] py-3 px-12 text-white text-center font-semibold text-base leading-6 tracking-wide !mt-10 max-md:!mt-6">Get Started</button>
+
+        </div>
+        <div class="flex-1 order-first">
+          <div class="w-full bg-[url(/advantages-of-having-a-multi-currency-account.png)] h-full bg-cover bg-center bg-no-repeat">
+
+          </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-white py-8 px-20 max-md:px-8 max-sm:px-4 max-lg:px-16">
+      <div class="container mx-auto flex flex-col">
+        <div class="flex-[4] bg-neutral-800 rounded-[2.5rem] text-center p-12 space-y-7 py-20 max-sm:p-4 max-md:p-6 max-lg:p-9 max-md:py-12 max-lg:py-16 max-sm:py-10">
+          <h6 class="text-xl max-md:text-base max-lg:text-lg max-md:leading-4 font-bold leading-6 uppercase text-[#00af7e] relative z-40">the future of finance</h6>
+          <h4 class="text-center capitalize leading-[4.5rem] text-[4rem] font-bold relative z-40 max-md:text-5xl max-md:leading-[3.8rem] max-md:font-semibold">Simplify Your Finances with Easy Payments</h4>
+          <div class="group mx-auto flex justify-center items-center gap-6 relative z-40 max-md:flex-col">
+            <button class="rounded-lg bg-[#00af7e] py-3 px-12 capitalize text-white hover:text-[#00af7e] hover:bg-transparent border-[#00af7e] border border-solid"> get started
+            </button>
+            <button class="rounded-lg text-[#00af7e] bg-transparent py-3 px-12 capitalize hover:bg-[#00af7e] hover:text-white border border-solid border-[#00af7e]"> see pricing
+            </button>
+          </div>
+        </div>
+        <div class="flex-1 max-md:mt-2">
+          <div class="flex justify-between items-center max-md:flex-col">
+            <div class="gap-x-2 max-md:gap-y-2 flex justify-start py-4 items-center max-md:flex-col max-md:py-2">
+              <div class="text-[#13171D] text-2xl font-black leading-6 tracking-wide uppercase max-md:font-bold max-md:text-xl max-md:leading-5"> Business logo </div>
+              <p class="text-[#13171D] text-base font-medium leading-8 tracking-wide uppercase max-md:tracking-[unset] max-md:text-xs"> &copy; 2022 Website name. All Rights Reserved </p>
+            </div>
+
+            <div class="gap-x-6 flex justify-end py-4 items-center">
+              <div class=""><img src="/facebook.svg" alt=""></div>
+              <div class=""><img src="/linkedin.svg" alt=""></div>
+              <div class=""><img src="/twitter.svg" alt=""></div>
+              <div class=""><img src="/instagram.svg" alt=""></div>
+            </div>
+
+          </div>
+        </div>
+        <div class="absolute top-0 left-0 z-30 max-md:max-w-full max-md:overflow-hidden max-md:rounded-r-[2.5rem]">
+          <svg width="1169" height="207" viewBox="0 0 1169 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M359.5 -39H1168.5L695 207H-114L359.5 -39Z" fill="url(#paint0_linear_14_580)"/>
+            <defs>
+              <linearGradient id="paint0_linear_14_580" x1="-114" y1="207" x2="1168.5" y2="207" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0D1C30"/>
+                <stop offset="1" stop-color="#083F3B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="absolute right-0 bottom-16 max-md:hidden">
+          <svg width="655" height="166" viewBox="0 0 655 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M318.62 0H863L544.38 166H0L318.62 0Z" fill="url(#paint0_linear_14_582)"/>
+            <defs>
+              <linearGradient id="paint0_linear_14_582" x1="0" y1="166" x2="863" y2="166" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0D1C30"/>
+                <stop offset="1" stop-color="#083F3B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+
+</html>
